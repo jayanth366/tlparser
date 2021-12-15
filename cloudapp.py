@@ -4,7 +4,7 @@ from datetime import datetime
 
 if __name__ ==  "__main__" :
 
-  main_bg = "image.jpg"
+  main_bg = "pic.jpg"
   main_bg_ext = "jpg"
   st.markdown(
   f"""
@@ -17,14 +17,13 @@ if __name__ ==  "__main__" :
   unsafe_allow_html=True
   )
   with st.expander("Webapp"):
-    st.title("Webpage for TimeLog Parser")
+    st.title("Webpage to determine the TimeLog Parser")
     if __name__ ==  "__main__" :
       docx_file = st.file_uploader("Upload File",type=['txt','docx','pdf'])
-      if st.button("Process"):
+      if st.button("Run"):
         if docx_file is not None:
             file_details = {"Filename":docx_file.name,"FileType":docx_file.type,"FileSize":docx_file.size}
             st.write(file_details)
-            # Check File Type
             if docx_file.type == "text/plain":
               line = str(docx_file.read(),"utf-8")
               cnt = 1
@@ -54,4 +53,4 @@ if __name__ ==  "__main__" :
                   total += (out_time - int_time).total_seconds()/60/60
                 cnt += 1
 
-            st.write(f" {abs(total)} hours is the time spend by the author on this file ")
+            st.write(f" {abs(total)} hours spend by the author on this file ")
